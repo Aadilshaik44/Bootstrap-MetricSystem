@@ -1,0 +1,75 @@
+﻿@{
+    var title = ViewData["Title"] as string ?? "MetricSystem";
+    var controller = (ViewContext.RouteData.Values["controller"]?.ToString() ?? "");
+    var action     = (ViewContext.RouteData.Values["action"]?.ToString() ?? "");
+    bool onFahrenheit = controller == "Conversions" && action == "Fahrenheit";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@title</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+<div class="d-flex flex-column min-vh-100">
+
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">MetricSystem</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                    aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <div class="navbar-nav me-auto">
+                    <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
+
+                    @if (!onFahrenheit)
+                    {
+                        <a class="nav-link" asp-controller="Conversions" asp-action="Fahrenheit">Fahrenheit</a>
+                        <a class="nav-link" href="#">Inch</a>
+                        <a class="nav-link" href="#">Pint</a>
+                        <a class="nav-link" href="#">Yard</a>
+                    }
+
+                    <a class="nav-link" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                </div>
+            </div>
+
+            <div class="navbar-nav ms-auto align-items-center nav-calcs">
+                <a class="nav-link d-flex align-items-center"
+                   asp-controller="Conversions" asp-action="Fahrenheit" title="Calculations">
+                    <span class="fa-solid fa-cart-shopping me-1"></span>
+                    <span>Calculations</span>
+                    <span class="badge bg-primary ms-2">2</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main role="main" class="flex-fill">
+        @RenderBody()
+    </main>
+
+    <footer class="footer mt-auto py-2">
+        <div class="container-fluid px-3">
+            <span class="footer-brand">© 2025 - MetricSystem</span>
+            <span class="text-muted"> - <a asp-controller="Home" asp-action="Privacy">Privacy</a></span>
+        </div>
+    </footer>
+</div>
+
+<script src="~/lib/jquery/jquery.min.js"></script>
+<script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="~/lib/jquery-validation/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+@RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,40 @@
+@model MetricSystem.Models.TemperatureViewModel
+@{
+    ViewData["Title"] = "Convert Fahrenheit to Celsius";
+}
+<div class="container page-panel panel-glass">
+    <h2 class="mb-1 fw-bold">Convert Fahrenheit to Celsius</h2>
+    <hr class="mt-0 mb-3" />
+
+    <form asp-action="Fahrenheit" method="post" novalidate>
+
+        <div class="mb-3 text-danger">
+            <div asp-validation-summary="All"></div>
+        </div>
+
+        <div class="row mb-3">
+            <label asp-for="FahrenheitValue" class="col-md-3 col-form-label"></label>
+            <div class="col-md-6">
+                <input asp-for="FahrenheitValue" class="form-control" />
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label asp-for="CelsiusValue" class="col-md-3 col-form-label"></label>
+            <div class="col-md-6">
+                <input asp-for="CelsiusValue" class="form-control" readonly />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-9 offset-md-3">
+                <button type="submit" class="btn btn-primary me-2">Convert</button>
+                <button type="submit" name="clear" value="1" class="btn btn-clear" formnovalidate>Clear</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial"/>
+}

@@ -1,0 +1,130 @@
+/* Background image across pages */
+body {
+  background: url('../images/background_img.jpg') no-repeat center center fixed;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* Navbar typography tweaks to match screenshot feel */
+.navbar-brand {
+  font-weight: 600;          /* a bit bolder */
+  font-size: 1.5rem;         /* slightly larger brand */
+}
+
+.nav-calcs .nav-link {
+  color: var(--bs-primary) !important;
+  font-weight: 500;
+}
+
+.nav-calcs .nav-link .fa-cart-shopping {
+  color: var(--bs-primary) !important;
+}
+
+.nav-calcs .nav-link:hover {
+  color: #0a58ca !important;
+}
+
+.nav-calcs .nav-link:hover .fa-cart-shopping {
+  color: #0a58ca !important;
+}
+
+/* Home hero sizing to match the sample */
+.hero-wrap {
+  padding: 2rem 1rem 2rem;
+}
+
+.hero-card {
+  max-width: 820px;               /* a bit wider for that big look */
+  margin: 2.5rem auto;
+  padding: 2.25rem 2.75rem;
+  text-align: center;
+}
+
+/* Big title like the screenshot */
+.hero-card h1 {
+  font-weight: 400;
+  font-size: 3.25rem;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+/* Larger on wider screens */
+@media (min-width: 992px) {
+  .hero-card h1 {
+    font-size: 3.75rem;           
+  }
+}
+
+.hero-card p {
+  margin: 0.75rem 0 0;
+  font-size: 1.05rem;
+}
+
+
+.footer {
+  background-color: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(2px);
+  border-top: 1px solid rgba(0, 0, 0, 0.25);
+  font-size: 0.875rem;
+}
+
+.footer-brand {
+  font-weight: 600;        /* bolder */
+  font-size: 0.95rem;      /* slightly larger */
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.footer .text-muted {
+  color: rgba(0, 0, 0, 0.65) !important;
+}
+
+.footer a {
+  color: #0d6efd;
+  text-decoration: underline;  /* always underlined */
+}
+
+.page-panel {
+  max-width: 900px;       /* keep consistent width across systems */
+  margin: 3rem auto;      /* center horizontally, add spacing */
+  padding: 2rem;
+}
+
+.panel-glass {
+  background: rgba(255,255,255,0.9);
+  border-radius: 1.25rem;
+  box-shadow: 0 14px 32px rgba(0,0,0,.16);
+}
+
+
+.page-panel h2 { 
+  font-size: 2.25rem; 
+}
+
+.btn-convert {
+  background-color: white;
+  border: 2px solid #000;
+  color: #000;
+  font-weight: 500;
+  padding: 6px 16px;
+  border-radius: 4px;
+}
+
+.btn-convert:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Clear button: gray border, lighter text */
+.btn-clear {
+  background-color: white;
+  border: 2px solid #6c757d;
+  color: #6c757d;
+  font-weight: 500;
+  padding: 6px 16px;
+  border-radius: 4px;
+}
+
+.btn-clear:hover {
+  background-color: #6c757d;
+  color: #fff;
+}
